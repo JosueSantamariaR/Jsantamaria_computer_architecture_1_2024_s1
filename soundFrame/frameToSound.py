@@ -26,3 +26,34 @@ soundFile = "audio_reconstructed.wav"
 frames_to_sound(framesFile, soundFile)
 
 print(f"The frames file '{framesFile}' has been converted to audio format in '{soundFile}'")
+
+
+"""
+import soundfile as sf
+import numpy as np
+
+# Define sampling rate
+sampling_rate = 44100
+
+# Open audio file
+audio_file = sf.read("audio.wav")
+
+# Get audio signal
+audio_data = audio_file[0]
+
+# Validate audio duration (at least 10 seconds)
+audio_duration = len(audio_data) / sampling_rate
+if audio_duration < 10:
+    print("Audio must be at least 10 seconds long.")
+    exit()
+
+# Convert data to raw byte format
+raw_data = np.array(audio_data * 128, dtype=np.uint8)
+
+# Save data to raw text file
+with open("audio_raw.txt", "wb") as text_file:
+    text_file.write(raw_data)
+
+print("Audio file successfully converted to raw format (.txt)!")
+
+"""
